@@ -17,9 +17,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="tests\**" />
-  </ItemGroup>
-  <ItemGroup>
     <PackageReference Include="JoySoftware.NetDaemon.App" Version="21.49.3" />
     <PackageReference Include="JoySoftware.NetDaemon.DaemonRunner" Version="21.49.3" />
     <PackageReference Include="JoySoftware.NetDaemon.HassModel" Version="21.49.3" />
