@@ -12,7 +12,6 @@ public class HouseStateManager
     private double ElevationEvening => 6.0;
     private double ElevationMorning => -1.0;
 
-
     public HouseStateManager(IHaContext ha, INetDaemonScheduler scheduler, ILogger<HouseState> logger)
     {
         _entities = new Entities(ha);
@@ -42,8 +41,7 @@ public class HouseStateManager
 
     public bool IsDaytime => _entities.InputSelect.Housestate.State == "Dag";
     public bool IsNighttime => _entities.InputSelect.Housestate.State == "Natt";
-    public bool IsCloudy => _entities.Weather.Home?.Attributes?.Cloudiness > 90.0;
-
+    public bool IsCloudy => _entities.Weather.SmhiHome?.Attributes?.Cloudiness > 90.0;
     private void SetDayTimeSchedule()
     {
         _log.LogInformation($"Setting daytime: {DAYTIME}");
@@ -84,7 +82,7 @@ public class HouseStateManager
 
     /// <summary>
     ///     When elevation <= 9 and sun is not rising and depending if
-    ///     it is cloudy set the evening state
+    ///     it is cloudy set the morning state
     /// </summary>
     private void SetMorningSchedule()
     {

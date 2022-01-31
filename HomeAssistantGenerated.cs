@@ -21,6 +21,8 @@ namespace HomeAssistantGenerated
 
 		PersonEntities Person { get; }
 
+		SceneEntities Scene { get; }
+
 		SensorEntities Sensor { get; }
 
 		SunEntities Sun { get; }
@@ -48,6 +50,7 @@ namespace HomeAssistantGenerated
 		public NumberEntities Number => new(_haContext);
 		public PersistentNotificationEntities PersistentNotification => new(_haContext);
 		public PersonEntities Person => new(_haContext);
+		public SceneEntities Scene => new(_haContext);
 		public SensorEntities Sensor => new(_haContext);
 		public SunEntities Sun => new(_haContext);
 		public SwitchEntities Switch => new(_haContext);
@@ -63,10 +66,16 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>motion_hall</summary>
-		public BinarySensorEntity MotionHall => new(_haContext, "binary_sensor.motion_hall");
-		///<summary>SM-G991B Is Charging</summary>
+		///<summary>motion_kok</summary>
+		public BinarySensorEntity MotionKok => new(_haContext, "binary_sensor.motion_kok");
+		///<summary>Remote UI</summary>
+		public BinarySensorEntity RemoteUi => new(_haContext, "binary_sensor.remote_ui");
+		///<summary>SM-G960F Is Charging</summary>
+		public BinarySensorEntity SmG960fIsCharging => new(_haContext, "binary_sensor.sm_g960f_is_charging");
+		///<summary>Magnus mobil Is Charging</summary>
 		public BinarySensorEntity SmG991bIsCharging => new(_haContext, "binary_sensor.sm_g991b_is_charging");
+		///<summary>SM-T510 Is Charging</summary>
+		public BinarySensorEntity SmT510IsCharging => new(_haContext, "binary_sensor.sm_t510_is_charging");
 		///<summary>Updater</summary>
 		public BinarySensorEntity Updater => new(_haContext, "binary_sensor.updater");
 	}
@@ -79,8 +88,12 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>SM-G991B</summary>
+		///<summary>SM-G960F</summary>
+		public DeviceTrackerEntity SmG960f => new(_haContext, "device_tracker.sm_g960f");
+		///<summary>Magnus mobil</summary>
 		public DeviceTrackerEntity SmG991b => new(_haContext, "device_tracker.sm_g991b");
+		///<summary>SM-T510</summary>
+		public DeviceTrackerEntity SmT510 => new(_haContext, "device_tracker.sm_t510");
 	}
 
 	public class InputSelectEntities
@@ -103,14 +116,32 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>hall1</summary>
-		public LightEntity Hall1 => new(_haContext, "light.hall1");
+		///<summary>Blomlampa</summary>
+		public LightEntity Blomlampa => new(_haContext, "light.blomlampa");
+		///<summary>Fönster</summary>
+		public LightEntity GastrummetFonster => new(_haContext, "light.gastrummet_fonster");
+		///<summary>Köket</summary>
+		public LightEntity Koket => new(_haContext, "light.koket");
 		///<summary>kontoret_fönster</summary>
 		public LightEntity KontoretFonster => new(_haContext, "light.kontoret_fonster");
 		///<summary>kontoret_tak</summary>
 		public LightEntity KontoretTak => new(_haContext, "light.kontoret_tak");
+		///<summary>Lampor hallen</summary>
+		public LightEntity LamporHallen => new(_haContext, "light.lampor_hallen");
+		///<summary>Lampor kontoret</summary>
+		public LightEntity LamporKontoret => new(_haContext, "light.lampor_kontoret");
+		///<summary>Lampor vardagsrummet</summary>
+		public LightEntity LamporVardagsrummet => new(_haContext, "light.lampor_vardagsrummet");
 		///<summary>lights</summary>
 		public LightEntity Lights => new(_haContext, "light.lights");
+		///<summary>Fönster</summary>
+		public LightEntity SovrummetFonster => new(_haContext, "light.sovrummet_fonster");
+		///<summary>Lilla fönstret</summary>
+		public LightEntity VardagsrummetFonsterLilla => new(_haContext, "light.vardagsrummet_fonster_lilla");
+		///<summary>Spegel</summary>
+		public LightEntity VardagsrummetSpegel => new(_haContext, "light.vardagsrummet_spegel");
+		///<summary>Vardagsrummet_tv</summary>
+		public LightEntity VardagsrummetTv => new(_haContext, "light.vardagsrummet_tv");
 	}
 
 	public class MediaPlayerEntities
@@ -127,8 +158,12 @@ namespace HomeAssistantGenerated
 		public MediaPlayerEntity Hallen => new(_haContext, "media_player.hallen");
 		///<summary>Köket</summary>
 		public MediaPlayerEntity Koket => new(_haContext, "media_player.koket");
+		///<summary>Samsung 6 Series (55)</summary>
+		public MediaPlayerEntity Samsung6Series55 => new(_haContext, "media_player.samsung_6_series_55");
 		///<summary>SHIELD</summary>
 		public MediaPlayerEntity Shield => new(_haContext, "media_player.shield");
+		///<summary>[TV] Samsung 6 Series (55)</summary>
+		public MediaPlayerEntity TvSamsung6Series55 => new(_haContext, "media_player.tv_samsung_6_series_55");
 		///<summary>Vardagsrummet</summary>
 		public MediaPlayerEntity Vardagsrummet => new(_haContext, "media_player.vardagsrummet");
 	}
@@ -141,8 +176,8 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>motion_hall Delay</summary>
-		public NumberEntity MotionHallDelay => new(_haContext, "number.motion_hall_delay");
+		///<summary>motion_kok Delay</summary>
+		public NumberEntity MotionKokDelay => new(_haContext, "number.motion_kok_delay");
 	}
 
 	public class PersistentNotificationEntities
@@ -165,8 +200,26 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
+		///<summary>Lotta Åhling</summary>
+		public PersonEntity LottaAhling => new(_haContext, "person.lotta_ahling");
 		///<summary>Magnus Åhling</summary>
 		public PersonEntity MagnusAhling => new(_haContext, "person.magnus_ahling");
+	}
+
+	public class SceneEntities
+	{
+		private readonly NetDaemon.HassModel.Common.IHaContext _haContext;
+		public SceneEntities(NetDaemon.HassModel.Common.IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>lights Borta</summary>
+		public SceneEntity LightsBorta => new(_haContext, "scene.lights_borta");
+		///<summary>lights Kväll</summary>
+		public SceneEntity LightsKvall => new(_haContext, "scene.lights_kvall");
+		///<summary>lights Morgon</summary>
+		public SceneEntity LightsMorgon => new(_haContext, "scene.lights_morgon");
 	}
 
 	public class SensorEntities
@@ -179,23 +232,53 @@ namespace HomeAssistantGenerated
 
 		///<summary>Consumption 3</summary>
 		public NumericSensorEntity Consumption3 => new(_haContext, "sensor.consumption_3");
+		///<summary>Consumption 5</summary>
+		public NumericSensorEntity Consumption5 => new(_haContext, "sensor.consumption_5");
 		///<summary>hacs</summary>
 		public NumericSensorEntity Hacs => new(_haContext, "sensor.hacs");
-		///<summary>motion_hall Battery Level</summary>
-		public NumericSensorEntity MotionHallBatteryLevel => new(_haContext, "sensor.motion_hall_battery_level");
+		///<summary>LightLevel 7</summary>
+		public NumericSensorEntity Lightlevel7 => new(_haContext, "sensor.lightlevel_7");
+		///<summary>LightLevel 7 Battery Level</summary>
+		public NumericSensorEntity Lightlevel7BatteryLevel => new(_haContext, "sensor.lightlevel_7_battery_level");
+		///<summary>motion_kok Battery Level</summary>
+		public NumericSensorEntity MotionKokBatteryLevel => new(_haContext, "sensor.motion_kok_battery_level");
 		///<summary>Power 4</summary>
 		public NumericSensorEntity Power4 => new(_haContext, "sensor.power_4");
-		///<summary>SM-G991B Battery Level</summary>
+		///<summary>Power 6</summary>
+		public NumericSensorEntity Power6 => new(_haContext, "sensor.power_6");
+		///<summary>SM-G960F Battery Level</summary>
+		public NumericSensorEntity SmG960fBatteryLevel => new(_haContext, "sensor.sm_g960f_battery_level");
+		///<summary>SM-G960F Battery Temperature</summary>
+		public NumericSensorEntity SmG960fBatteryTemperature => new(_haContext, "sensor.sm_g960f_battery_temperature");
+		///<summary>Magnus mobil Battery Level</summary>
 		public NumericSensorEntity SmG991bBatteryLevel => new(_haContext, "sensor.sm_g991b_battery_level");
-		///<summary>SM-G991B Battery Temperature</summary>
+		///<summary>Magnus mobil Battery Temperature</summary>
 		public NumericSensorEntity SmG991bBatteryTemperature => new(_haContext, "sensor.sm_g991b_battery_temperature");
+		///<summary>SM-T510 Battery Level</summary>
+		public NumericSensorEntity SmT510BatteryLevel => new(_haContext, "sensor.sm_t510_battery_level");
+		///<summary>SM-T510 Battery Temperature</summary>
+		public NumericSensorEntity SmT510BatteryTemperature => new(_haContext, "sensor.sm_t510_battery_temperature");
+		///<summary>Daylight</summary>
+		public SensorEntity Daylight => new(_haContext, "sensor.daylight");
 		public SensorEntity NetdaemonStatus => new(_haContext, "sensor.netdaemon_status");
-		///<summary>SM-G991B Battery Health</summary>
+		///<summary>SM-G960F Battery Health</summary>
+		public SensorEntity SmG960fBatteryHealth => new(_haContext, "sensor.sm_g960f_battery_health");
+		///<summary>SM-G960F Battery State</summary>
+		public SensorEntity SmG960fBatteryState => new(_haContext, "sensor.sm_g960f_battery_state");
+		///<summary>SM-G960F Charger Type</summary>
+		public SensorEntity SmG960fChargerType => new(_haContext, "sensor.sm_g960f_charger_type");
+		///<summary>Magnus mobil Battery Health</summary>
 		public SensorEntity SmG991bBatteryHealth => new(_haContext, "sensor.sm_g991b_battery_health");
-		///<summary>SM-G991B Battery State</summary>
+		///<summary>Magnus mobil Battery State</summary>
 		public SensorEntity SmG991bBatteryState => new(_haContext, "sensor.sm_g991b_battery_state");
-		///<summary>SM-G991B Charger Type</summary>
+		///<summary>Magnus mobil Charger Type</summary>
 		public SensorEntity SmG991bChargerType => new(_haContext, "sensor.sm_g991b_charger_type");
+		///<summary>SM-T510 Battery Health</summary>
+		public SensorEntity SmT510BatteryHealth => new(_haContext, "sensor.sm_t510_battery_health");
+		///<summary>SM-T510 Battery State</summary>
+		public SensorEntity SmT510BatteryState => new(_haContext, "sensor.sm_t510_battery_state");
+		///<summary>SM-T510 Charger Type</summary>
+		public SensorEntity SmT510ChargerType => new(_haContext, "sensor.sm_t510_charger_type");
 	}
 
 	public class SunEntities
@@ -218,12 +301,14 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
+		///<summary>Blomlampa hallen</summary>
+		public SwitchEntity HallenBlomlampa => new(_haContext, "switch.hallen_blomlampa");
 		///<summary>köket_fönster</summary>
 		public SwitchEntity KoketFonster => new(_haContext, "switch.koket_fonster");
 		public SwitchEntity NetdaemonHousestatemanager => new(_haContext, "switch.netdaemon_housestatemanager");
 		public SwitchEntity NetdaemonLightmanager => new(_haContext, "switch.netdaemon_lightmanager");
 		public SwitchEntity NetdaemonLottashomecomingapp => new(_haContext, "switch.netdaemon_lottashomecomingapp");
-		///<summary>Vardagsrummet_fönster_tv</summary>
+		///<summary>Fönster  TV</summary>
 		public SwitchEntity VardagsrummetFonsterTv => new(_haContext, "switch.vardagsrummet_fonster_tv");
 	}
 
@@ -235,8 +320,10 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
-		///<summary>Home</summary>
-		public WeatherEntity Home => new(_haContext, "weather.home");
+		///<summary>Gavik</summary>
+		public WeatherEntity SmhiGavik => new(_haContext, "weather.smhi_gavik");
+		///<summary>Hede</summary>
+		public WeatherEntity SmhiHede => new(_haContext, "weather.smhi_hede");
 		///<summary>Home</summary>
 		public WeatherEntity SmhiHome => new(_haContext, "weather.smhi_home");
 	}
@@ -249,6 +336,8 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
+		///<summary>Hemma</summary>
+		public ZoneEntity Hemma => new(_haContext, "zone.hemma");
 		///<summary>Home</summary>
 		public ZoneEntity Home => new(_haContext, "zone.home");
 	}
@@ -337,6 +426,17 @@ namespace HomeAssistantGenerated
 		}
 
 		public PersonEntity(NetDaemon.HassModel.Entities.Entity entity) : base(entity)
+		{
+		}
+	}
+
+	public record SceneEntity : NetDaemon.HassModel.Entities.Entity<SceneEntity, NetDaemon.HassModel.Entities.EntityState<SceneAttributes>, SceneAttributes>
+	{
+		public SceneEntity(NetDaemon.HassModel.Common.IHaContext haContext, string entityId) : base(haContext, entityId)
+		{
+		}
+
+		public SceneEntity(NetDaemon.HassModel.Entities.Entity entity) : base(entity)
 		{
 		}
 	}
@@ -487,8 +587,14 @@ namespace HomeAssistantGenerated
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("color_mode")]
 		public string? ColorMode { get; init; }
 
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("entity_id")]
+		public object? EntityId { get; init; }
+
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("friendly_name")]
 		public string? FriendlyName { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("icon")]
+		public string? Icon { get; init; }
 
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("is_deconz_group")]
 		public bool? IsDeconzGroup { get; init; }
@@ -502,11 +608,44 @@ namespace HomeAssistantGenerated
 
 	public record MediaPlayerAttributes
 	{
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("device_class")]
+		public string? DeviceClass { get; init; }
+
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("friendly_name")]
 		public string? FriendlyName { get; init; }
 
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("icon")]
+		public string? Icon { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("is_volume_muted")]
+		public bool? IsVolumeMuted { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("media_content_id")]
+		public string? MediaContentId { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("media_duration")]
+		public double? MediaDuration { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("media_track")]
+		public double? MediaTrack { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("repeat")]
+		public string? Repeat { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("shuffle")]
+		public bool? Shuffle { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("sound_mode_list")]
+		public object? SoundModeList { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("source_list")]
+		public object? SourceList { get; init; }
+
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("supported_features")]
 		public double? SupportedFeatures { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("volume_level")]
+		public double? VolumeLevel { get; init; }
 	}
 
 	public record NumberAttributes
@@ -544,6 +683,9 @@ namespace HomeAssistantGenerated
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("editable")]
 		public bool? Editable { get; init; }
 
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("entity_picture")]
+		public string? EntityPicture { get; init; }
+
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("friendly_name")]
 		public string? FriendlyName { get; init; }
 
@@ -566,10 +708,22 @@ namespace HomeAssistantGenerated
 		public string? UserId { get; init; }
 	}
 
+	public record SceneAttributes
+	{
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("friendly_name")]
+		public string? FriendlyName { get; init; }
+	}
+
 	public record NumericSensorAttributes
 	{
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("current")]
 		public double? Current { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("dark")]
+		public bool? Dark { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("daylight")]
+		public bool? Daylight { get; init; }
 
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("device_class")]
 		public string? DeviceClass { get; init; }
@@ -601,6 +755,9 @@ namespace HomeAssistantGenerated
 
 	public record SensorAttributes
 	{
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("daylight")]
+		public bool? Daylight { get; init; }
+
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("friendly_name")]
 		public string? FriendlyName { get; init; }
 
@@ -612,6 +769,9 @@ namespace HomeAssistantGenerated
 
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("number_of_running_apps")]
 		public double? NumberOfRunningApps { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("on")]
+		public bool? On { get; init; }
 
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("version")]
 		public string? Version { get; init; }
@@ -654,6 +814,9 @@ namespace HomeAssistantGenerated
 	{
 		[System.Text.Json.Serialization.JsonPropertyNameAttribute("friendly_name")]
 		public string? FriendlyName { get; init; }
+
+		[System.Text.Json.Serialization.JsonPropertyNameAttribute("icon")]
+		public string? Icon { get; init; }
 	}
 
 	public record WeatherAttributes
@@ -783,6 +946,8 @@ namespace HomeAssistantGenerated
 
 		ScriptServices Script { get; }
 
+		ShoppingListServices ShoppingList { get; }
+
 		SirenServices Siren { get; }
 
 		SwitchServices Switch { get; }
@@ -835,6 +1000,7 @@ namespace HomeAssistantGenerated
 		public RecorderServices Recorder => new(_haContext);
 		public SceneServices Scene => new(_haContext);
 		public ScriptServices Script => new(_haContext);
+		public ShoppingListServices ShoppingList => new(_haContext);
 		public SirenServices Siren => new(_haContext);
 		public SwitchServices Switch => new(_haContext);
 		public SystemLogServices SystemLog => new(_haContext);
@@ -3356,6 +3522,22 @@ namespace HomeAssistantGenerated
 			_haContext = haContext;
 		}
 
+		///<summary>Sends a notification message using the mobile_app_sm_g960f integration.</summary>
+		public void MobileAppSmG960f(NotifyMobileAppSmG960fParameters data)
+		{
+			_haContext.CallService("notify", "mobile_app_sm_g960f", null, data);
+		}
+
+		///<summary>Sends a notification message using the mobile_app_sm_g960f integration.</summary>
+		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
+		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
+		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
+		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
+		public void MobileAppSmG960f(string @message, string? @title = null, object? @target = null, object? @data = null)
+		{
+			_haContext.CallService("notify", "mobile_app_sm_g960f", null, new NotifyMobileAppSmG960fParameters{Message = @message, Title = @title, Target = @target, Data = @data});
+		}
+
 		///<summary>Sends a notification message using the mobile_app_sm_g991b integration.</summary>
 		public void MobileAppSmG991b(NotifyMobileAppSmG991bParameters data)
 		{
@@ -3370,6 +3552,22 @@ namespace HomeAssistantGenerated
 		public void MobileAppSmG991b(string @message, string? @title = null, object? @target = null, object? @data = null)
 		{
 			_haContext.CallService("notify", "mobile_app_sm_g991b", null, new NotifyMobileAppSmG991bParameters{Message = @message, Title = @title, Target = @target, Data = @data});
+		}
+
+		///<summary>Sends a notification message using the mobile_app_sm_t510 integration.</summary>
+		public void MobileAppSmT510(NotifyMobileAppSmT510Parameters data)
+		{
+			_haContext.CallService("notify", "mobile_app_sm_t510", null, data);
+		}
+
+		///<summary>Sends a notification message using the mobile_app_sm_t510 integration.</summary>
+		///<param name="message">Message body of the notification. eg: The garage door has been open for 10 minutes.</param>
+		///<param name="title">Title for your notification. eg: Your Garage Door Friend</param>
+		///<param name="target">An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</param>
+		///<param name="data">Extended information for notification. Optional depending on the platform. eg: platform specific</param>
+		public void MobileAppSmT510(string @message, string? @title = null, object? @target = null, object? @data = null)
+		{
+			_haContext.CallService("notify", "mobile_app_sm_t510", null, new NotifyMobileAppSmT510Parameters{Message = @message, Title = @title, Target = @target, Data = @data});
 		}
 
 		///<summary>Sends a notification message using the notify service.</summary>
@@ -3403,7 +3601,45 @@ namespace HomeAssistantGenerated
 		}
 	}
 
+	public record NotifyMobileAppSmG960fParameters
+	{
+		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("message")]
+		public string? Message { get; init; }
+
+		///<summary>Title for your notification. eg: Your Garage Door Friend</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("title")]
+		public string? Title { get; init; }
+
+		///<summary>An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("target")]
+		public object? Target { get; init; }
+
+		///<summary>Extended information for notification. Optional depending on the platform. eg: platform specific</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("data")]
+		public object? Data { get; init; }
+	}
+
 	public record NotifyMobileAppSmG991bParameters
+	{
+		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("message")]
+		public string? Message { get; init; }
+
+		///<summary>Title for your notification. eg: Your Garage Door Friend</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("title")]
+		public string? Title { get; init; }
+
+		///<summary>An array of targets to send the notification to. Optional depending on the platform. eg: platform specific</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("target")]
+		public object? Target { get; init; }
+
+		///<summary>Extended information for notification. Optional depending on the platform. eg: platform specific</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("data")]
+		public object? Data { get; init; }
+	}
+
+	public record NotifyMobileAppSmT510Parameters
 	{
 		///<summary>Message body of the notification. eg: The garage door has been open for 10 minutes.</summary>
 		[System.Text.Json.Serialization.JsonPropertyName("message")]
@@ -3783,6 +4019,93 @@ namespace HomeAssistantGenerated
 		}
 	}
 
+	public class ShoppingListServices
+	{
+		private readonly NetDaemon.HassModel.Common.IHaContext _haContext;
+		public ShoppingListServices(NetDaemon.HassModel.Common.IHaContext haContext)
+		{
+			_haContext = haContext;
+		}
+
+		///<summary>Add an item to the shopping list.</summary>
+		public void AddItem(ShoppingListAddItemParameters data)
+		{
+			_haContext.CallService("shopping_list", "add_item", null, data);
+		}
+
+		///<summary>Add an item to the shopping list.</summary>
+		///<param name="name">The name of the item to add. eg: Beer</param>
+		public void AddItem(string @name)
+		{
+			_haContext.CallService("shopping_list", "add_item", null, new ShoppingListAddItemParameters{Name = @name});
+		}
+
+		///<summary>Clear completed items from the shopping list.</summary>
+		public void ClearCompletedItems()
+		{
+			_haContext.CallService("shopping_list", "clear_completed_items", null);
+		}
+
+		///<summary>Marks all items as completed in the shopping list. It does not remove the items.</summary>
+		public void CompleteAll()
+		{
+			_haContext.CallService("shopping_list", "complete_all", null);
+		}
+
+		///<summary>Mark an item as completed in the shopping list.</summary>
+		public void CompleteItem(ShoppingListCompleteItemParameters data)
+		{
+			_haContext.CallService("shopping_list", "complete_item", null, data);
+		}
+
+		///<summary>Mark an item as completed in the shopping list.</summary>
+		///<param name="name">The name of the item to mark as completed (without removing). eg: Beer</param>
+		public void CompleteItem(string @name)
+		{
+			_haContext.CallService("shopping_list", "complete_item", null, new ShoppingListCompleteItemParameters{Name = @name});
+		}
+
+		///<summary>Marks all items as incomplete in the shopping list.</summary>
+		public void IncompleteAll()
+		{
+			_haContext.CallService("shopping_list", "incomplete_all", null);
+		}
+
+		///<summary>Marks an item as incomplete in the shopping list.</summary>
+		public void IncompleteItem(ShoppingListIncompleteItemParameters data)
+		{
+			_haContext.CallService("shopping_list", "incomplete_item", null, data);
+		}
+
+		///<summary>Marks an item as incomplete in the shopping list.</summary>
+		///<param name="name">The name of the item to mark as incomplete. eg: Beer</param>
+		public void IncompleteItem(string @name)
+		{
+			_haContext.CallService("shopping_list", "incomplete_item", null, new ShoppingListIncompleteItemParameters{Name = @name});
+		}
+	}
+
+	public record ShoppingListAddItemParameters
+	{
+		///<summary>The name of the item to add. eg: Beer</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("name")]
+		public string? Name { get; init; }
+	}
+
+	public record ShoppingListCompleteItemParameters
+	{
+		///<summary>The name of the item to mark as completed (without removing). eg: Beer</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("name")]
+		public string? Name { get; init; }
+	}
+
+	public record ShoppingListIncompleteItemParameters
+	{
+		///<summary>The name of the item to mark as incomplete. eg: Beer</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("name")]
+		public string? Name { get; init; }
+	}
+
 	public class SirenServices
 	{
 		private readonly NetDaemon.HassModel.Common.IHaContext _haContext;
@@ -3984,6 +4307,23 @@ namespace HomeAssistantGenerated
 			_haContext.CallService("tts", "clear_cache", null);
 		}
 
+		///<summary>Say something using text-to-speech on a media player with cloud.</summary>
+		public void CloudSay(TtsCloudSayParameters data)
+		{
+			_haContext.CallService("tts", "cloud_say", null, data);
+		}
+
+		///<summary>Say something using text-to-speech on a media player with cloud.</summary>
+		///<param name="entityId">Name(s) of media player entities.</param>
+		///<param name="message">Text to speak on devices. eg: My name is hanna</param>
+		///<param name="cache">Control file cache of this message.</param>
+		///<param name="language">Language to use for speech generation. eg: ru</param>
+		///<param name="options">A dictionary containing platform-specific options. Optional depending on the platform. eg: platform specific</param>
+		public void CloudSay(string @entityId, string @message, bool? @cache = null, string? @language = null, object? @options = null)
+		{
+			_haContext.CallService("tts", "cloud_say", null, new TtsCloudSayParameters{EntityId = @entityId, Message = @message, Cache = @cache, Language = @language, Options = @options});
+		}
+
 		///<summary>Say something using text-to-speech on a media player with google_cloud.</summary>
 		public void GoogleCloudSay(TtsGoogleCloudSayParameters data)
 		{
@@ -3991,7 +4331,7 @@ namespace HomeAssistantGenerated
 		}
 
 		///<summary>Say something using text-to-speech on a media player with google_cloud.</summary>
-		///<param name="entityId">Name(s) of media player entities.\</param>
+		///<param name="entityId">Name(s) of media player entities.</param>
 		///<param name="message">Text to speak on devices. eg: My name is hanna</param>
 		///<param name="cache">Control file cache of this message.</param>
 		///<param name="language">Language to use for speech generation. eg: ru</param>
@@ -4002,9 +4342,32 @@ namespace HomeAssistantGenerated
 		}
 	}
 
+	public record TtsCloudSayParameters
+	{
+		///<summary>Name(s) of media player entities.</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("entityId")]
+		public string? EntityId { get; init; }
+
+		///<summary>Text to speak on devices. eg: My name is hanna</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("message")]
+		public string? Message { get; init; }
+
+		///<summary>Control file cache of this message.</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("cache")]
+		public bool? Cache { get; init; }
+
+		///<summary>Language to use for speech generation. eg: ru</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("language")]
+		public string? Language { get; init; }
+
+		///<summary>A dictionary containing platform-specific options. Optional depending on the platform. eg: platform specific</summary>
+		[System.Text.Json.Serialization.JsonPropertyName("options")]
+		public object? Options { get; init; }
+	}
+
 	public record TtsGoogleCloudSayParameters
 	{
-		///<summary>Name(s) of media player entities.\</summary>
+		///<summary>Name(s) of media player entities.</summary>
 		[System.Text.Json.Serialization.JsonPropertyName("entityId")]
 		public string? EntityId { get; init; }
 
@@ -4407,6 +4770,23 @@ namespace HomeAssistantGenerated
 		public static void SetValue(this NumberEntity entity, string? @value = null)
 		{
 			entity.CallService("set_value", new NumberSetValueParameters{Value = @value});
+		}
+	}
+
+	public static class SceneEntityExtensionMethods
+	{
+		///<summary>Activate a scene.</summary>
+		public static void TurnOn(this SceneEntity entity, SceneTurnOnParameters data)
+		{
+			entity.CallService("turn_on", data);
+		}
+
+		///<summary>Activate a scene.</summary>
+		///<param name="entity">The SceneEntity to call this service for</param>
+		///<param name="transition">Transition duration it takes to bring devices to the state defined in the scene.</param>
+		public static void TurnOn(this SceneEntity entity, long? @transition = null)
+		{
+			entity.CallService("turn_on", new SceneTurnOnParameters{Transition = @transition});
 		}
 	}
 
